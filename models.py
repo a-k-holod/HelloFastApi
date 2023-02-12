@@ -1,3 +1,4 @@
+from distutils.command.build_scripts import first_line_re
 from typing import Optional, List
 from uuid import UUID, uuid4
 from pydantic import BaseModel
@@ -19,3 +20,10 @@ class User(BaseModel):
     middle_name: Optional[str] = None
     gender: Gender
     roles: List[Role]
+
+class UserUpdate(BaseModel):
+    first_name: Optional[str]
+    middle_name: Optional[str]
+    last_name: Optional[str]
+    gender: Optional[Gender]
+    roles: Optional[List[Role]]
